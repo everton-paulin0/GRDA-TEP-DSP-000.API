@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GRDA_TEP_DSP_000.Domain.Entities
+namespace GRDA_TEP_DSP_000.Application.Validator
 {
-    public enum Trail
+    public class InsertPalestraValidator
     {
-        Trilha1,
-        Trilha2
     }
 }

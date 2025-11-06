@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GRDA-TEP-DSP-000.Domain\GRDA-TEP-DSP-000.Domain.csproj" />
+    <ProjectReference Include="..\GRDA-TEP-DSP-000.Infrastructure\GRDA-TEP-DSP-000.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
