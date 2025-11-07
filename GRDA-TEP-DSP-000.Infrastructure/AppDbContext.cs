@@ -18,7 +18,7 @@ namespace GRDA_TEP_DSP_000.Infrastructure
         public DbSet<Palestra> Palestra { get; set; }
         
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlite(connectionString: "DataSource=app.db;Cache=Shared");
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //=> optionsBuilder.UseSqlite(connectionString: "DataSource=app.db;Cache=Shared");
     }
 }

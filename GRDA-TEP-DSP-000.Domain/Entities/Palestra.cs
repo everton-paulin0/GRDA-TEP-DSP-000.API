@@ -11,8 +11,8 @@ namespace GRDA_TEP_DSP_000.Domain.Entities
     {
         public string Subject { get; set; }
         public Trail Trail { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime Finish { get; set; }
+        public TimeSpan Start { get; set; }
+        public TimeSpan Finish { get; set; }
         public TimeSpan Duration { get; set; }
 
         public void TotalDuration()
