@@ -6,18 +6,23 @@
         {
             
         }
-        public BaseEntities(DateTime createdAt, DateTime updateAt, bool isActive)
+        public BaseEntities(DateTime createdAt, DateTime updatedAt, bool isActive)
         {
             CreatedAt = DateTime.UtcNow;
-            UpdateAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
             IsActive = true;
         }
 
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public bool IsActive { get; set; }
 
-        
+        public void SetAsDeleted()
+        {
+            IsActive = true;
+        }
+
+
     }
 }

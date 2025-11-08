@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GRDA_TEP_DSP_000.Domain.Entities;
 using GRDA_TEP_DSP_000.Domain.Entities.Enum;
 
 namespace GRDA_TEP_DSP_000.Application.Model
@@ -14,7 +16,7 @@ namespace GRDA_TEP_DSP_000.Application.Model
         {
             Id = id;
             Subject = subject;
-            Trail = trail.ToString();
+            Trail = trail;
             Start = start;
             Finish = finish;
             Duration = duration;
@@ -27,7 +29,14 @@ namespace GRDA_TEP_DSP_000.Application.Model
         public TimeSpan Finish { get; set; }
         public TimeSpan Duration { get; set; }
 
-        public static PalestraItemViewModel FromEntityPalestra(PalestraItemViewModel palestra)
-            => new(palestra.Id, palestra.Subject, palestra.Trail.ToString(), palestra.Start, palestra.Finish, palestra.Duration);
+        public static PalestraItemViewModel FromEntityPalestra(Palestra palestra)
+            => new(
+                palestra.Id,
+                palestra.Subject,
+                palestra.Trail.ToString(),
+                palestra.Start,
+                palestra.Finish,
+                palestra.Duration
+            );
     }
 }
