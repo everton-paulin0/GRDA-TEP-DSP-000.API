@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251107012127_Initial")]
+    [Migration("20251109175557_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -48,7 +48,7 @@ namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
                     b.Property<int>("Trail")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("UpdateAt")
+                    b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

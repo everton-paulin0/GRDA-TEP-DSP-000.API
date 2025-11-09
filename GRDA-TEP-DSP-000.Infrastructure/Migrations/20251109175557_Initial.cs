@@ -23,7 +23,7 @@ namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
                     Finish = table.Column<TimeSpan>(type: "TEXT", nullable: false),
                     Duration = table.Column<TimeSpan>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

@@ -8,7 +8,7 @@ namespace GRDA_TEP_DSP_000.Domain.Entities.Enum
 {
     public enum Trail
     {
-        Trilha1,
-        Trilha2
+        Trilha1 = 1,
+        Trilha2 = 2
     }
 }

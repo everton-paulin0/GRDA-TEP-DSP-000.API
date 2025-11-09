@@ -12,11 +12,11 @@ namespace GRDA_TEP_DSP_000.Application.Model
 {
     public class PalestraItemViewModel
     {
-        public PalestraItemViewModel(int id, string subject, string trail, TimeSpan start, TimeSpan finish, TimeSpan duration)
+        public PalestraItemViewModel(int id, string subject, Trail trail, TimeSpan start, TimeSpan finish, TimeSpan duration)
         {
             Id = id;
             Subject = subject;
-            Trail = trail;
+            Trail = trail.ToString();
             Start = start;
             Finish = finish;
             Duration = duration;
@@ -33,7 +33,7 @@ namespace GRDA_TEP_DSP_000.Application.Model
             => new(
                 palestra.Id,
                 palestra.Subject,
-                palestra.Trail.ToString(),
+                palestra.Trail,
                 palestra.Start,
                 palestra.Finish,
                 palestra.Duration

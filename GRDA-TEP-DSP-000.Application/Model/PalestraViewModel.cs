@@ -9,6 +9,10 @@ namespace GRDA_TEP_DSP_000.Application.Model
 {
     public class PalestraViewModel
     {
+        public PalestraViewModel()
+        {
+            
+        }
         public PalestraViewModel(int id, string subject, string trail, TimeSpan start, TimeSpan finish, TimeSpan duration)
         {
             Id = id;

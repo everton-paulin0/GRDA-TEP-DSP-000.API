@@ -22,10 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\GRDA-TEP-DSP-000.Application\GRDA-TEP-DSP-000.Application.csproj" />
     <ProjectReference Include="..\GRDA-TEP-DSP-000.Infrastructure\GRDA-TEP-DSP-000.Infrastructure.csproj" />
   </ItemGroup>
 

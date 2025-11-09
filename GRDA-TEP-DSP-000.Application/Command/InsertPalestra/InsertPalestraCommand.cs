@@ -9,11 +9,17 @@ namespace GRDA_TEP_DSP_000.Application.Command.InsertPalestra
     {
         public string Subject { get; set; }
         public Trail Trail { get; set; }
-        public TimeSpan Start { get; set; }
-        public TimeSpan Finish { get; set; }
-        public TimeSpan Duration { get; set; }
+        public string Start { get; set; }
+        public string Finish { get; set; }
+
 
         public Palestra ToEntityPalestra()
-            => new Palestra(Subject, Trail, Start, Finish, Duration);
+        => new Palestra(
+            Subject,
+            Trail,
+            TimeSpan.Parse(Start),
+            TimeSpan.Parse(Finish)
+            
+        );
     }
 }
