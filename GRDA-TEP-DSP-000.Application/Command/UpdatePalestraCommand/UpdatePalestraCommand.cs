@@ -9,8 +9,10 @@ namespace GRDA_TEP_DSP_000.Application.Command.UpdatePalestraCommand
         public int IdPalestra { get; set; }
         public string Subject { get; set; }
         public Trail Trail { get; set; }
-        public TimeSpan Start { get; set; }
-        public TimeSpan Finish { get; set; }
-        public TimeSpan Duration { get; set; }
+        public string Start { get; set; }
+        public string Finish { get; set; }
+        
+        public TimeSpan GetStartTime() => TimeSpan.Parse(Start);
+        public TimeSpan GetFinishTime() => TimeSpan.Parse(Finish);
     }
 }

@@ -1,4 +1,6 @@
-﻿using GRDA_TEP_DSP_000.Application.Command.InsertPalestra;
+﻿using GRDA_TEP_DSP_000.Application.Command.DeletePalestra;
+using GRDA_TEP_DSP_000.Application.Command.InsertPalestra;
+using GRDA_TEP_DSP_000.Application.Command.UpdatePalestraCommand;
 using GRDA_TEP_DSP_000.Application.Interface;
 using GRDA_TEP_DSP_000.Application.Queries.GetAllPalestraQuery;
 using GRDA_TEP_DSP_000.Application.Queries.GetPalestraByIdQuery;
@@ -73,6 +75,33 @@ namespace GRDA_TEP_DSP_000.API.Controllers
             return Ok(result.Data);
         }
 
-        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] UpdatePalestraCommand command)
+        {
+            if (id != command.IdPalestra)
+                return BadRequest("O ID Inválido.");
+
+            var result = await _mediator.Send(command);
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _mediator.Send(new DeletePalestraCommand(id));
+
+            if (!result.IsSucess)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return NoContent();
+        }
     }
 }

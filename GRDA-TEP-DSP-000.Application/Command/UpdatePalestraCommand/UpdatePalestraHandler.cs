@@ -21,7 +21,7 @@ namespace GRDA_TEP_DSP_000.Application.Command.UpdatePalestraCommand
                 return ResultViewModel<PalestraViewModel>.Error("Palestra não existe");
             }
 
-            palestra.Update(request.Subject, request.Trail, request.Start, request.Finish, request.Duration);
+            palestra.Update(request.Subject, request.Trail, request.Start, request.Finish);
 
             _context.Palestra.Update(palestra);
             await _context.SaveChangesAsync();

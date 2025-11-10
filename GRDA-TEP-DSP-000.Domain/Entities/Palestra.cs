@@ -18,19 +18,32 @@ namespace GRDA_TEP_DSP_000.Domain.Entities
         public TimeSpan Start { get; set; }
         public TimeSpan Finish { get; set; }
         public TimeSpan Duration { get; private set; }
+        public string TipoPalestra { get; private set; }
 
         public void TotalDuration()
         {
             Duration = Finish - Start;
+
+            if (Duration < TimeSpan.FromMinutes(5))
+            {
+                // Marca como palestra relâmpago
+                Duration = TimeSpan.FromMinutes(5);
+                TipoPalestra = "Relâmpago";
+                Console.WriteLine("Relâmpago");
+            }
+            else
+            {
+                // Palestra normal
+                TipoPalestra = "Normal";
+            }
         }
 
-        public void Update(string subject, Trail trail, TimeSpan start, TimeSpan finish, TimeSpan duration)
+        public void Update(string subject, Trail trail, string start, string finish)
         {
             Subject = subject;
             Trail = trail;
-            Start = start;
-            Finish = finish;
-            Duration = duration;
+            Start = TimeSpan.Parse(start);
+            Finish = TimeSpan.Parse(finish);
             UpdatedAt = DateTime.Now;
         }
 
