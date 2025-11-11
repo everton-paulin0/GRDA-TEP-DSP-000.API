@@ -19,6 +19,10 @@ namespace GRDA_TEP_DSP_000.Application.Command.InsertPalestra
         {
             var palestra = request.ToEntityPalestra();
 
+            palestra.ValidateTrailTime();
+
+            palestra.TotalDuration();
+
             await _context.Palestra.AddAsync(palestra);
             await _context.SaveChangesAsync();
 

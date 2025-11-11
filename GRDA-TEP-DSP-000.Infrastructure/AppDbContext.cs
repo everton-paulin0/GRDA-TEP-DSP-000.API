@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using GRDA_TEP_DSP_000.Domain.Entities;
@@ -16,9 +17,15 @@ namespace GRDA_TEP_DSP_000.Infrastructure
 
         }
         public DbSet<Palestra> Palestra { get; set; }
-        
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //=> optionsBuilder.UseSqlite(connectionString: "DataSource=app.db;Cache=Shared");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Palestra>()
+                .Property(p => p.SessionTime)
+                .HasConversion<string>(); // Salva como texto
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

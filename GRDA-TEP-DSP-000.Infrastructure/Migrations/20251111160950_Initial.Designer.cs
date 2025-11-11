@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251109175557_Initial")]
+    [Migration("20251111160950_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -38,6 +38,9 @@ namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("SessionTime")
+                        .HasColumnType("INTEGER");
+
                     b.Property<TimeSpan>("Start")
                         .HasColumnType("TEXT");
 
@@ -47,6 +50,10 @@ namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
 
                     b.Property<int>("Trail")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("TypePalestra")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");

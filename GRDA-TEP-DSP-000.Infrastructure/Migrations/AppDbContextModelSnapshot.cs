@@ -35,6 +35,9 @@ namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("SessionTime")
+                        .HasColumnType("INTEGER");
+
                     b.Property<TimeSpan>("Start")
                         .HasColumnType("TEXT");
 
@@ -44,6 +47,10 @@ namespace GRDA_TEP_DSP_000.Infrastructure.Migrations
 
                     b.Property<int>("Trail")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("TypePalestra")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TEXT");

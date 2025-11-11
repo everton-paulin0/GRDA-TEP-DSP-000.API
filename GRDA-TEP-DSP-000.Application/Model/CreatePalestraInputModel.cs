@@ -13,8 +13,9 @@ namespace GRDA_TEP_DSP_000.Application.Model
         public TimeSpan Start { get; set; }
         public TimeSpan Finish { get; set; }
         public TimeSpan Duration { get; set; }
+        public SessionTimes SessionTime { get; set; }
 
         public Palestra ToEntityPalestra()        
-            => new Palestra(Subject, Trail, Start, Finish);
+            => new Palestra(Subject, Trail, Start, Finish, Duration, SessionTime);
     }
 }
