@@ -25,11 +25,15 @@ namespace GRDA_TEP_DSP_000.Application.Validator
 
             RuleFor(p => p.Start)
                 .NotEmpty()
-                .WithMessage("HH:MM.");
+                .InclusiveBetween(TimeSpan.FromHours(9),(TimeSpan.FromHours(17)))
+                .WithMessage("Frmato de Inicio HH:MM.");
+
 
             RuleFor(p => p.Finish)
                 .NotEmpty()
-                .WithMessage("HH:MM.");
+                .InclusiveBetween(TimeSpan.FromHours(9), (TimeSpan.FromHours(17)))
+                .WithMessage("Escolha entre Trilha 1 ou Trilha 2.")
+                .WithMessage("Frmato de Fim HH:MM.");
 
         }
     }
