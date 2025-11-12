@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GRDA_TEP_DSP_000.Domain.Entities;
-
+﻿using GRDA_TEP_DSP_000.Domain.Entities;
 namespace GRDA_TEP_DSP_000.Application.Model
 {
     public class PalestraViewModel
@@ -13,7 +7,8 @@ namespace GRDA_TEP_DSP_000.Application.Model
         {
             
         }
-        public PalestraViewModel(int id, string subject, string trail, TimeSpan start, TimeSpan finish, TimeSpan duration)
+
+        public PalestraViewModel(int id, string subject, string trail, TimeSpan start, TimeSpan finish, TimeSpan duration, string typePalestra, string sessionTime)
         {
             Id = id;
             Subject = subject;
@@ -21,6 +16,8 @@ namespace GRDA_TEP_DSP_000.Application.Model
             Start = start;
             Finish = finish;
             Duration = duration;
+            TypePalestra = typePalestra;
+            SessionTime = sessionTime.ToString();
         }
 
         public int Id { get; set; }
@@ -29,8 +26,10 @@ namespace GRDA_TEP_DSP_000.Application.Model
         public TimeSpan Start { get; set; }
         public TimeSpan Finish { get; set; }
         public TimeSpan Duration { get; set; }
+        public string TypePalestra { get; private set; }
+        public string SessionTime { get; set; }
 
         public static PalestraViewModel FromEntityPalestra(Palestra entity)
-            => new PalestraViewModel(entity.Id, entity.Subject, entity.Trail.ToString(), entity.Start, entity.Finish, entity.Duration);
+            => new PalestraViewModel(entity.Id, entity.Subject, entity.Trail.ToString(), entity.Start, entity.Finish, entity.Duration, entity.TypePalestra, entity.SessionTime.ToString());
     }
 }

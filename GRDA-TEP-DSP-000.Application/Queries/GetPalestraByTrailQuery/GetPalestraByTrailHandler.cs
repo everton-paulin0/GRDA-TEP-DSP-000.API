@@ -21,19 +21,21 @@ namespace GRDA_TEP_DSP_000.Application.Queries.GetPalestraByTrailQuery
         public async Task<ResultViewModel<List<PalestraViewModel>>> Handle(GetPalestraByTrailQuery request, CancellationToken cancellationToken)
         {
             var palestras = await _context.Palestra
-                .Where(p => p.Trail == request.Trail)
-                .Select(p => new PalestraViewModel
-                {
-                    Id = p.Id,
-                    Subject = p.Subject,
-                    Trail = p.Trail.ToString(), 
-                    Start = p.Start,
-                    Finish = p.Finish,
-                    Duration = p.Duration
-                })
-                .ToListAsync(cancellationToken);
+            .Where(p => p.Trail == request.Trail)
+            .Select(p => new PalestraViewModel(
+                p.Id,
+                p.Subject,
+                p.Trail.ToString(),
+                p.Start,
+                p.Finish,
+                p.Duration,
+                p.TypePalestra,
+                p.SessionTime.ToString()
+            ))
+            .ToListAsync(cancellationToken);
 
             return ResultViewModel<List<PalestraViewModel>>.Success(palestras);
+
         }
     }
 }

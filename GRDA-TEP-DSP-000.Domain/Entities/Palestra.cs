@@ -34,7 +34,7 @@ namespace GRDA_TEP_DSP_000.Domain.Entities
         {
             Duration = Finish - Start;
 
-            if (Duration < TimeSpan.FromMinutes(5))
+            if (Duration <= TimeSpan.FromMinutes(5))
             {
                 // Marca como palestra relâmpago
                 Duration = TimeSpan.FromMinutes(5);

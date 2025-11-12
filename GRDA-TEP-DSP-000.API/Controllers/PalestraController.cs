@@ -59,14 +59,32 @@ namespace GRDA_TEP_DSP_000.API.Controllers
             return Ok(result.Data);
         }
 
-        [HttpGet("trilha/{trail}")]
-        public async Task<IActionResult> GetByTrailAsync(int trail)
+        //[HttpGet("trilha/{trail}")]
+        //public async Task<IActionResult> GetByTrailAsync(int trail)
+        //{
+        //    // Converte o inteiro para o enum
+        //    if (!Enum.IsDefined(typeof(Trail), trail))
+        //        return BadRequest("Trilha inválida.");
+
+        //    var query = new GetPalestraByTrailQuery((Trail)trail);
+        //    var result = await _mediator.Send(query);
+
+        //    if (!result.IsSucess)
+        //        return NotFound(result.Message);
+
+        //    return Ok(result.Data);
+        //}
+
+        [HttpGet("trilha/{trail}/sessao/{sessionTime}")]
+        public async Task<IActionResult> GetByTrailAsync(int trail, int sessionTime)
         {
-            // Converte o inteiro para o enum
             if (!Enum.IsDefined(typeof(Trail), trail))
                 return BadRequest("Trilha inválida.");
 
-            var query = new GetPalestraByTrailQuery((Trail)trail);
+            if (!Enum.IsDefined(typeof(SessionTimes), sessionTime))
+                return BadRequest("Horário de sessão inválido.");
+
+            var query = new GetPalestraByTrailQuery((Trail)trail, (SessionTimes)sessionTime);
             var result = await _mediator.Send(query);
 
             if (!result.IsSucess)
